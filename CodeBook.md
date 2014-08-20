@@ -1,7 +1,10 @@
 DATA DICTIONARY - SmartLab Human Activity Recognition using wearable Samsung phone
 =================================================================================
+
+
 Activity		1	
 	Activity performed each person
+	
 		1 .WALKING
 		2 .WALKING_UPSTAIRS
 		3 .WALKING_DOWNSTAIRS
@@ -11,7 +14,9 @@ Activity		1
 
 Subject 		2
 	ID of the person involved in the experiment
+	
 		1..30
+		
 tBodyAcc-mean()-X            
 	Mean of time domain body acceleration on X axis
 		0.22159824..0.301461020

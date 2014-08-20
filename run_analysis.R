@@ -51,7 +51,7 @@ run_analysis<- function(){
 
 
 
-# This function assignes the names to given data set. To minimize the effort, These column names has been
+# This function assignes the names to given data set. To minimize the effort, These column names have been
 # copied from features.txt
 assign_names<- function(rawData){
   names(rawData)<- c( "Subject",

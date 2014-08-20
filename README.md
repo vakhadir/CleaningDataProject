@@ -60,7 +60,7 @@ Similarly get to dimension of the train data:
     [1] 7352    1
 
 
-##Merging the test and train data:##
+##Merge the test and train data:##
 
 
 Merge test data together using column binding the data sets; subtest, ytest and xtest to form a new data set called 'test'.
