@@ -25,6 +25,7 @@ The X_ files (1 and 5 from above list) consisting of the data from the experimen
 ##Analyze the Data:##
 
 Read the identified files using read.table to make the following variables.
+
 1. subtest
 2. xtest
 3. ytest
@@ -49,12 +50,14 @@ of the recorded experiment data.
 
 Similarly get to dimension of the train data: 
 
-> dim(subtrain)
-[1] 7352    1
-> dim(xtrain)
-[1] 7352  561
-> dim(ytrain)
-[1] 7352    1
+    dim(subtrain)
+    [1] 7352    1
+    
+    dim(xtrain)
+    [1] 7352  561
+   
+    dim(ytrain)
+    [1] 7352    1
 
 
 ##Merging the test and train data:##
@@ -65,10 +68,11 @@ Similarly merge train data together using column binding the data sets; subtrain
 
 Now we have 2 data sets called 'test' and 'train'. See the dimensions of both
 
-> dim(test)
-[1] 2947  563
-> dim(train)
-[1] 7352  563
+    dim(test)
+    [1] 2947  563
+    
+    dim(train)
+    [1] 7352  563
 
 Both has exactly same number of columns. Now both of them has to be merged by row binding to form a full blown raw data set called 'rawData'.
 
@@ -86,7 +90,7 @@ Using subsetting technique and above identified variable indices, extract a subs
 
 Verify the columns of tidyData1. 
 
->names(tidyData1)
+    names(tidyData1)
 
 
 ##Calculate Averages:##
@@ -94,7 +98,7 @@ Verify the columns of tidyData1.
 
 Following script displays the 296 rows of variable tBodyAcc-mean()-X for the Participant 1 while the Participant was WALKING. 
 
-> tidyData1[tidyData1$Subject ==1 & tidyData1$Activity == 1,1:3]
+    tidyData1[tidyData1$Subject ==1 & tidyData1$Activity == 1,1:3]
 
 We need to get average of all 296 rows. 
 
@@ -110,7 +114,7 @@ Aggregate function appends the two variable by which aggregate has been performe
 
 Using following script verify that Activity and Subject has been repeated.
 
->names (tidyData2)
+    names (tidyData2)
 
 By subsetting,  remove 2 and 3rd columns to make the final data set tidyData. Write the tidy data to the current working directory.
 The name of the file is TidyData.txt.
@@ -123,14 +127,14 @@ The name of the file is TidyData.txt.
 The script run_analysis.R assumes that the folder 'UCI HAR Dataset' supplied with the course project is present the same director as the source file.
 to run the script type the following command.
 
->run_analysis()
+    run_analysis()
 
 It produces TidyData.txt in the same directory where run_analysis is placed. 
 
 
-Min and Max values
-==
+##Min and Max values##
+
 The minimum and maximum values recorded for each variable in the CodeBook.md have been found using the follwing script
 
->data.frame(min=sapply(tidyData,min),max=sapply(tidyData,max))
+    data.frame(min=sapply(tidyData,min),max=sapply(tidyData,max))
 
