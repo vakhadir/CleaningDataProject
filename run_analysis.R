@@ -34,12 +34,12 @@ run_analysis<- function(){
   rawData<-assign_names(rawData)
   
   # Extract only required columns from the full raw data set. Required columns being means and stds
-  tidyData1<-rawData[,c(1:8,43:48,83:88,123:128,163:168,203,204,216,217,229,230,242,
+  rawDataSubset<-rawData[,c(1:8,43:48,83:88,123:128,163:168,203,204,216,217,229,230,242,
                         243,255,256,268:273,347:352,426:431,505,506,518,519,531,532,544,545)]
   
   # using aggregate calculate average for each variable for each activity and each subject. 
-  tidyData<-aggregate(tidyData1[,3:ncol(tidyData1)],
-                      by=list(Activity = tidyData1$Activity,Subject = tidyData1$Subject),FUN=mean)
+  tidyData<-aggregate(rawDataSubset[,3:ncol(rawDataSubset)],
+                      by=list(Activity = rawDataSubset$Activity,Subject = rawDataSubset$Subject),FUN=mean)
   
   
   

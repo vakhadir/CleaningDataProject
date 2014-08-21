@@ -86,11 +86,11 @@ Assign these variable names (from the spreadsheet) to the data set rawData. Refe
 
 Go thru the list from the spreadsheet and note down the index of the required variables (mean and sd variables) to be extracted from the data set rawData. 
 
-Using subsetting technique and above identified variable indices, extract a subset of rawData and name it 'tidyData1'.
+Using subsetting technique and above identified variable indices, extract a subset of rawData and name it 'rawDataSubset'.
 
-Verify the columns of tidyData1. 
+Verify the columns of rawDataSubset. 
 
-    names(tidyData1)
+    names(rawDataSubset)
 
 
 ##Calculate Averages:##
@@ -98,7 +98,7 @@ Verify the columns of tidyData1.
 
 Following script displays the 296 rows of variable tBodyAcc-mean()-X for the Participant 1 while the Participant was WALKING. 
 
-    tidyData1[tidyData1$Subject ==1 & tidyData1$Activity == 1,1:3]
+    rawDataSubset[rawDataSubset$Subject ==1 & rawDataSubset$Activity == 1,1:3]
 
 We need to get average of all 296 rows. 
 
