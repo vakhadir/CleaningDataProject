@@ -1,19 +1,20 @@
-# ###############################################################################
+#################################################################################
 # The run_analysis function reads test and train files and merges them into one 
 # raw bigdata set called rawData.Assigns names of  all the fields  of  raw data  
 # set.Extracts mean and standard deviations valuesfrom the raw data set to make 
 # tidyData1.Using aggregate function it calculate average for each variable for 
 # each activity and each  subject. Finally it writes the tidy data to a file in 
 # the present working director. The resultant file name is TidyData.txt
-# ###############################################################################
+#################################################################################
 
 run_analysis<- function(){
+  getwd()
   # Read X_Test and Y-Test Files
-  xtest<-read.table("./UCI HAR Dataset/test/x_test.txt",sep = "")
+  xtest<-read.table("./UCI HAR Dataset/test/X_test.txt",sep = "")
   ytest<-read.table("./UCI HAR Dataset/test/y_test.txt",sep = "")
   
   # Read X_Tain and Y-Train Files
-  xtrain<-read.table("./UCI HAR Dataset/train/x_train.txt",sep = "")
+  xtrain<-read.table("./UCI HAR Dataset/train/X_train.txt",sep = "")
   ytrain<-read.table("./UCI HAR Dataset/train/y_train.txt",sep = "")
   
   # Read subject_test and subject_train Files
@@ -37,13 +38,10 @@ run_analysis<- function(){
                         243,255,256,268:273,347:352,426:431,505,506,518,519,531,532,544,545)]
   
   # using aggregate calculate average for each variable for each activity and each subject. 
-  tidyData2<-aggregate(tidyData1,by=list(Activity = tidyData1$Activity,Subject = tidyData1$Subject),FUN=mean)
+  tidyData<-aggregate(tidyData1[,3:ncol(tidyData1)],
+                      by=list(Activity = tidyData1$Activity,Subject = tidyData1$Subject),FUN=mean)
   
-  # tidyData2  consists of 2 new columns called Activity and Subject from the aggregate function above.
-  # These two   columns  are already  part of  tidyData2.  We dont want to repeat Activity and Subject. 
-  # so remove either first 2 columns added by the aggregate function or remove the 3rd and 4th columns.
-  # I choose to remove 3rd and 4th columns.To get  the final tidy data.
-  tidyData<-tidyData2[,c(1,2,5:70)]
+  
   
   # write the tidy data to a file called TidyData.txt
   write.table(tidyData,file="./TidyData.txt" ,col.names=TRUE,row.names=FALSE)
@@ -51,8 +49,8 @@ run_analysis<- function(){
 
 
 
-# This function assignes the names to given data set. To minimize the effort, These column names have been
-# copied from features.txt
+# This function assignes the names to given data set. To minimize the effort, These column names 
+# have been copied from features.txt
 assign_names<- function(rawData){
   names(rawData)<- c( "Subject",
                       "Activity",
