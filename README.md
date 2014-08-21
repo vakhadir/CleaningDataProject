@@ -104,25 +104,19 @@ We need to get average of all 296 rows.
 
 Similarly there are 29 other participants and 5 more activities. So 30 multiplied by 6 is 180 number of rows we get for each variable. 
 
-This has been achieved by aggregate function by Activity and Subject. The resultant data set is named as 'tidyData2'.
+This has been achieved by aggregate function by Activity and Subject. The resultant data set is named as 'tidyData'.
 
 
 ##Tidy Data:##
 
 
-Aggregate function appends the two variable by which aggregate has been performed to the data set tidyData2. 
-
-Using following script verify that Activity and Subject has been repeated.
-
-    names (tidyData2)
-
-By subsetting,  remove 2 and 3rd columns to make the final data set tidyData. Write the tidy data to the current working directory.
-The name of the file is TidyData.txt.
+The resultant data set is 'tidyData' is written to a file called TidyData.txt in the current working directory.
 
 
 
 ##Running the Script:##
 
+Before running the script from R studio, make sure to set the source folder location. To do that, click on Sessions from the R studio menu, select Set Working Directory, and select Soruce File Location
 
 The script run_analysis.R assumes that the folder 'UCI HAR Dataset' supplied with the course project is present the same director as the source file.
 to run the script type the following command.
